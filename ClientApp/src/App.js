@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-export default class App extends Component {
-  static displayName = App.name;
+import AppRoutes from './AppRoutes'
 
-  render() {
+export default function App(){
     return (
-      <Layout>
-        <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
-        </Routes>
-      </Layout>
+        <Router>
+
+            <div className="App">
+                Temorary Page Switch
+                <ul>
+                    <li> <Link to="/">Home</Link> </li>
+                    <li> <Link to="/quote">Quote</Link> </li>
+                    <li> <Link to="/history">History</Link> </li>  
+                </ul>
+            </div>
+
+            <Routes>
+                {AppRoutes.map((route, index) => {
+                    const { element, ...rest } = route;
+                    return <Route key={index} {...rest} element={element} />;
+                })}
+            </Routes>
+
+        </Router>
     );
-  }
 }
