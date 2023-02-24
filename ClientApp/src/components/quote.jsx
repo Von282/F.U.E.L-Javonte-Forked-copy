@@ -1,5 +1,4 @@
-﻿import { useState } from 'react';
-import { Fragment } from 'react'
+﻿import React, { useState } from 'react';
 import './styleSheet.css';
 
 
@@ -22,7 +21,7 @@ export default function Quote () {
     }
 
     return (
-        <Fragment>
+        <React.Fragment>
             <h1>Get A Quote Today!</h1>
             <form onSubmit={ handleSubmit } >
                 <label> Enter Fuel Amount in Gallons: 
@@ -34,11 +33,10 @@ export default function Quote () {
                     />
                 </label>
                 <input className = 'submit' type = 'submit'/>
+                <h2 className = 'h2'> Charge Amount: {quote}$</h2>
             </form>
-            <h2> Charge Amount: { quote }$</h2>
-            {submitted && <button className={!loggedIn ? 'login' : 'purchase'}>{!loggedIn ? 'Login to Purchase' : 'Purchase Now'}</button>}
-
-        </Fragment>
+            {submitted && <button type='button' className={!loggedIn ? 'login' : 'purchase'}>{!loggedIn ? 'Login to Purchase' : 'Purchase Now'}</button>}
+        </React.Fragment>
     );
 }
 
