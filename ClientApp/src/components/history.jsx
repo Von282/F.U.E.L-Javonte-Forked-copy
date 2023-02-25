@@ -1,7 +1,8 @@
 ﻿import React, { Component } from 'react'
 
 export default function History() {
-    const purchases = [15, 20, 25, 18]
+    const purchases = [100, 200, 250, 180, 500]; /* Note this should be a stack when fully implemented */
+    const orderStates = ['Processing', 'Transit', 'Fulfilled'];
     return (
         <React.Fragment>
 
@@ -9,10 +10,9 @@ export default function History() {
             
             {purchases.map((item, index) => (
                 <div className='histBox'>
-                    <span className='histItem'> DATE OF PURCHASE </span>
-                    <span className='histItem'> MEMO HERE </span>
-                    <span className='histItem'> {item} GALLONS PROCESSING </span>
-                    <button className='histButton' key={index}> CANCEL </button>
+                    <span className='histItem'> Quoted '##/##/##' </span>
+                    <span className='histItem'> {item} GALLONS</span>
+                    <span className='histItem'> STATUS: {item%3===1? 'FULFILLED' : 'UNFULFILLED'} </span>
                 </div>
             ))}
             

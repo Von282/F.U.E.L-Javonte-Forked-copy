@@ -11,12 +11,12 @@ export default function Quote () {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!isNaN(gallonAmount)) {
+        if (!isNaN(gallonAmount) && gallonAmount > 0) {
             setQuote(calcQuote(gallonAmount))
             setSub(true);
         }
         else{
-            alert("Must Enter Positive Integer Value");
+            alert("Please Enter Positive Integer Value For Valid Quote");
         }
     }
 
@@ -32,9 +32,31 @@ export default function Quote () {
                         onChange={(e) => { setAmount(e.target.value); } }
                     />
                 </label>
-                <input className = 'submit' type = 'submit'/>
-                <h2 className = 'h2'> Charge Amount: {quote}$</h2>
+                <label> Enter Delivery Address:
+                    <input
+                        type='text'
+                        placeholder="State"
+                    />
+                    <input
+                        type='text'
+                        placeholder="City"
+                    />
+                    <input
+                        type='text'
+                        placeholder="Address"
+                    />
+                </label>
+                <label> Select Date for Delivery:
+                    <input
+                        type='text'
+                        placeholder="MM/DD/YYYY"
+                    />
+                </label>
+                <input className='submit' type='submit' />
+                <h2 className='h2'> Quoted a suggested price: $XX.XX per gallon </h2>
+                <h2 className='h2'> Projected Total: {quote}$</h2>
             </form>
+            
             {submitted && <button type='button' className={!loggedIn ? 'login' : 'purchase'}>{!loggedIn ? 'Login to Purchase' : 'Purchase Now'}</button>}
         </React.Fragment>
     );
