@@ -8,17 +8,17 @@
 }
 
 .h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 5%;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 form {
     width: 50%;
     height: 75%;
     margin: auto;
-    padding: 2em;
+    padding: 0px;
     position: relative;
     box-sizing: border-box;
     display: grid;
@@ -28,23 +28,39 @@ form {
 }
 
 label {
+    display: grid;
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
     text-align: center;
     width: auto;
 }
 
 input {
     font-size: 18px;
-    width: 50%;
-    padding: 5px;
+    width: 300px;
+    padding: 4px;
     text-align: center;
     margin-top: 10px;
 }
 
+select {
+    display: flex; 
+    justify-content: center;
+    align-items: center
+}
+
+.inputAlt {
+    font-size: 18px;
+    width: 100px;
+    padding: 0px;
+    text-align: center;
+    margin-top: 0;
+}
+
 .submit {
-    margin-top: 20px;
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     width: 25%;
